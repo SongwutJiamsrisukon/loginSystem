@@ -1,4 +1,5 @@
 <?php
+
     if(isset($_POST['submit'])){
 
         include_once 'dbh.php';
@@ -27,7 +28,7 @@
                         $result = mysqli_query($conn, $sql);
                         $resultCheck = mysqli_num_rows($result);
 
-                        if(resultCheck > 0){//มีคนใช้ id นี้แล้ว
+                        if($resultCheck > 0){//มีคนใช้ id นี้แล้ว
                             header("Location: ../signup.php?signup=usertaken");
                             exit();
                         }else{//hashing the password and insert to DB
